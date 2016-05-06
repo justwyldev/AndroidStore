@@ -9,7 +9,7 @@ import com.wyl.androidstore.utils.UIUtils;
 
 /**
  * BaseHolder
- *
+ * <p/>
  * Created by Leon Wu on 2016/5/316:29.
  * Email: yuanliang.wu@weimob.com
  */
@@ -32,7 +32,7 @@ public abstract class BaseHolder<Data> {
     }
 
 
-    public View getmContentView() {
+    public View getContentView() {
         return mContentView;
     }
 
@@ -49,5 +49,8 @@ public abstract class BaseHolder<Data> {
 
     protected abstract View initView();
 
+    public void recycle() {
+
+    }
 
 }
