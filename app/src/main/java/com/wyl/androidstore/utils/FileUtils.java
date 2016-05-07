@@ -17,7 +17,7 @@ public class FileUtils {
     //下载文件的路径
     public static final String DOWNLOAD_DIR = "download";
     //根目录
-    private static final Object ROOT_DIR = "google";
+    private static final Object ROOT_DIR = "androidstore";
 
     public static String getCacheDir() {
         return getDir(CACHE_DIR);
