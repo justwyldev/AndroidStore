@@ -2,12 +2,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true" >
 
     <LinearLayout
         android:layout_width="match_parent"
+
         android:layout_height="match_parent"
-        android:orientation="vertical">
+
+        android:orientation="vertical" >
 
         <RelativeLayout
             android:id="@+id/photo_layout"
@@ -15,7 +17,7 @@
             android:layout_height="55dp"
             android:background="@drawable/menu_icon_bg"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            android:paddingRight="10dp" >
 
             <ImageView
                 android:id="@+id/image_photo"
@@ -28,7 +30,6 @@
                 android:id="@+id/image_over"
                 android:layout_width="55dp"
                 android:layout_height="55dp"
-                android:background="@color/transparent"
                 android:src="@drawable/photo_over" />
 
             <RelativeLayout
@@ -36,7 +37,7 @@
                 android:layout_height="55dp"
                 android:layout_marginLeft="20dp"
                 android:layout_toRightOf="@id/image_photo"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical" >
 
                 <TextView
                     android:id="@+id/user_name"
@@ -72,7 +73,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_home"
@@ -107,7 +108,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_setting"
@@ -142,7 +143,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_theme"
@@ -177,7 +178,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_scans"
@@ -212,7 +213,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_feedback"
@@ -247,7 +248,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_updates"
@@ -282,7 +283,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_about"
@@ -317,7 +318,7 @@
             android:layout_height="40dp"
             android:background="@drawable/menu_item_bg"
             android:gravity="center_vertical"
-            android:paddingLeft="15dp">
+            android:paddingLeft="15dp" >
 
             <ImageView
                 android:id="@+id/ic_exit"
