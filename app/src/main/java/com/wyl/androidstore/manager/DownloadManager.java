@@ -19,21 +19,34 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 下载管理
  * Created by Leon Wu on 2016/5/515:19.
  * Email: yuanliang.wu@weimob.com
  */
 public class DownloadManager {
-    /** 默认 */
+    /**
+     * 默认
+     */
     public static final int STATE_NONE = 0;
-    /** 等待 */
+    /**
+     * 等待
+     */
     public static final int STATE_WAITING = 1;
-    /** 下载中 */
+    /**
+     * 下载中
+     */
     public static final int STATE_DOWNLOADING = 2;
-    /** 暂停 */
+    /**
+     * 暂停
+     */
     public static final int STATE_PAUSE = 3;
-    /** 错误 */
+    /**
+     * 错误
+     */
     public static final int STATE_ERROR = 4;
-    /** 下载完成 */
+    /**
+     * 下载完成
+     */
     public static final int STATE_DOWNLOED = 5;
 
     private static DownloadManager instance;
@@ -41,14 +54,20 @@ public class DownloadManager {
     private DownloadManager() {
     }
 
-    /** 用于记录下载信息,如果是正式项目,需要持久化保存 */
+    /**
+     * 用于记录下载信息,如果是正式项目,需要持久化保存
+     */
     private Map<Long, DownloadInfo> mDownloadMap = new ConcurrentHashMap<Long, DownloadInfo>();
-    /**用于记录所有下载的任务,方便取消下载时,能通过id找到该任务进行删除*/
-    private Map<Long,DownloadTask> mTaskMap=new ConcurrentHashMap<Long, DownloadTask>();
+    /**
+     * 用于记录所有下载的任务,方便取消下载时,能通过id找到该任务进行删除
+     */
+    private Map<Long, DownloadTask> mTaskMap = new ConcurrentHashMap<Long, DownloadTask>();
 
-    private List<DownloadObserver> mObservers=new ArrayList<DownloadObserver>();
+    private List<DownloadObserver> mObservers = new ArrayList<DownloadObserver>();
 
-    /** 注册观察者 */
+    /**
+     * 注册观察者
+     */
     public void registerObserver(DownloadObserver observer) {
         synchronized (mObservers) {
             if (!mObservers.contains(observer)) {
@@ -57,7 +76,9 @@ public class DownloadManager {
         }
     }
 
-    /** 反注册观察者 */
+    /**
+     * 反注册观察者
+     */
     public void unRegisterObserver(DownloadObserver observer) {
         synchronized (mObservers) {
             if (mObservers.contains(observer)) {
@@ -65,7 +86,10 @@ public class DownloadManager {
             }
         }
     }
-    /** 当下载状态发送改变的时候回调 */
+
+    /**
+     * 当下载状态发送改变的时候回调
+     */
     public void notifyDownloadStateChanged(DownloadInfo info) {
         synchronized (mObservers) {
             for (DownloadObserver observer : mObservers) {
@@ -74,7 +98,9 @@ public class DownloadManager {
         }
     }
 
-    /** 当下载进度发送改变的时候回调 */
+    /**
+     * 当下载进度发送改变的时候回调
+     */
     public void notifyDownloadProgressed(DownloadInfo info) {
         synchronized (mObservers) {
             for (DownloadObserver observer : mObservers) {
@@ -82,6 +108,7 @@ public class DownloadManager {
             }
         }
     }
+
     // 单例
     public static synchronized DownloadManager getInstance() {
         if (instance == null) {
@@ -111,7 +138,10 @@ public class DownloadManager {
         }
 
     }
-    /** 安装应用 */
+
+    /**
+     * 安装应用
+     */
     public synchronized void install(AppInfo appInfo) {
         stopDownload(appInfo);
         DownloadInfo info = mDownloadMap.get(appInfo.getId());// 找出下载信息
@@ -125,16 +155,21 @@ public class DownloadManager {
         notifyDownloadStateChanged(info);
     }
 
-    /**暂停下载*/
-    public synchronized void pause(AppInfo appInfo){
+    /**
+     * 暂停下载
+     */
+    public synchronized void pause(AppInfo appInfo) {
         stopDownload(appInfo);
-        DownloadInfo info=mDownloadMap.get(appInfo.getId());
-        if(info!=null){// 修改下载状态
+        DownloadInfo info = mDownloadMap.get(appInfo.getId());
+        if (info != null) {// 修改下载状态
             info.setDownloadState(STATE_PAUSE);
             notifyDownloadStateChanged(info);
         }
     }
-    /** 取消下载，逻辑和暂停类似，只是需要删除已下载的文件 */
+
+    /**
+     * 取消下载，逻辑和暂停类似，只是需要删除已下载的文件
+     */
     public synchronized void cancel(AppInfo appInfo) {
         stopDownload(appInfo);
         DownloadInfo info = mDownloadMap.get(appInfo.getId());// 找出下载信息
@@ -146,15 +181,17 @@ public class DownloadManager {
             file.delete();
         }
     }
+
     private void stopDownload(AppInfo appInfo) {
-        DownloadTask task=mTaskMap.remove(appInfo.getId());
-        if(task!=null){
+        DownloadTask task = mTaskMap.remove(appInfo.getId());
+        if (task != null) {
             ThreadManager.creatDownLoadPool().cancel(task);
         }
     }
 
     public class DownloadTask implements Runnable {
         private DownloadInfo info;
+
         public DownloadTask(DownloadInfo info) {
             this.info = info;
         }
@@ -194,7 +231,7 @@ public class DownloadManager {
                             && info.getDownloadState() == STATE_DOWNLOADING) {
                         fos.write(buffer, 0, count);
                         fos.flush();
-                        info.setCurrentSize(info.getCurrentSize()+count);
+                        info.setCurrentSize(info.getCurrentSize() + count);
                         notifyDownloadProgressed(info);
                     }
                 } catch (Exception e) {
@@ -225,14 +262,16 @@ public class DownloadManager {
             mTaskMap.remove(info.getId());
         }
     }
+
+    //观察者
     public interface DownloadObserver {
 
         public void onDownloadStateChanged(DownloadInfo info);
 
         public void onDownloadProgressed(DownloadInfo info);
     }
+
     public DownloadInfo getDownloadInfo(long id) {
-        // TODO Auto-generated method stub
         return mDownloadMap.get(id);
     }
 }
