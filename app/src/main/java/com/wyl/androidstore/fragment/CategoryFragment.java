@@ -16,6 +16,7 @@ import com.wyl.androidstore.ui.holder.CategoryTitleHolder;
 import java.util.List;
 
 /**
+ * 分类Fragment
  * Created by Leon Wu on 2016/5/511:15.
  * Email: yuanliang.wu@weimob.com
  */

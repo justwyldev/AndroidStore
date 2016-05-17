@@ -14,6 +14,7 @@ import com.wyl.androidstore.ui.holder.HomePictureHolder;
 import java.util.List;
 
 /**
+ * 首页Fragment
  * Created by Leon Wu on 2016/5/511:15.
  * Email: yuanliang.wu@weimob.com
  */

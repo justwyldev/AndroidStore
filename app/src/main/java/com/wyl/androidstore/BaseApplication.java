@@ -4,6 +4,7 @@ import android.app.Application;
 import android.os.Handler;
 
 /**
+ * 全局BaseApplication
  * Created by Leon Wu on 2016/5/317:24.
  * Email: yuanliang.wu@weimob.com
  */
@@ -16,11 +17,11 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mInstance=this;
-        mHandler=new Handler();
+        mInstance = this;
+        mHandler = new Handler();
     }
 
-    public static BaseApplication getApplication(){
+    public static BaseApplication getApplication() {
         return mInstance;
     }
 

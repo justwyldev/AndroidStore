@@ -8,8 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * BaseActivity
- *
+ * BaseActivity基类
  * Created by Leon Wu on 2016/5/317:30.
  * Email: yuanliang.wu@weimob.com
  */

@@ -11,6 +11,7 @@ import com.wyl.androidstore.ui.adapter.ListBaseAdapter;
 import java.util.List;
 
 /**
+ * 游戏Fragment
  * Created by Leon Wu on 2016/5/511:15.
  * Email: yuanliang.wu@weimob.com
  */

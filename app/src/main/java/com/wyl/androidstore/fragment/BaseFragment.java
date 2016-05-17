@@ -9,25 +9,27 @@ import android.view.ViewGroup;
 
 import com.wyl.androidstore.ui.LoadingPage;
 import com.wyl.androidstore.ui.LoadingPage.LoadResult;
-import com.wyl.androidstore.utils.LogUtils;
 import com.wyl.androidstore.utils.UIUtils;
 import com.wyl.androidstore.utils.ViewUtils;
 
 import java.util.List;
 
 /**
+ * 抽取基类Fragment
  * Created by Leon Wu on 2016/5/417:50.
  * Email: yuanliang.wu@weimob.com
  */
 public abstract class BaseFragment extends Fragment {
+
+    /***
+     * 加载状态View
+     */
     protected LoadingPage mContentView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        LogUtils.i("onCreateView");
         if (mContentView == null) {
-            LogUtils.i("tianjia2");
             mContentView = new LoadingPage(UIUtils.getContext()) {
                 @Override
                 public LoadResult load() {
@@ -51,9 +53,6 @@ public abstract class BaseFragment extends Fragment {
 
     /**
      * 检查数据完整性
-     *
-     * @param data
-     * @return
      */
     protected LoadResult check(Object data) {
         if (data == null) {
@@ -69,15 +68,11 @@ public abstract class BaseFragment extends Fragment {
 
     /**
      * 显示具体界面
-     *
-     * @return
      */
     public abstract View createLoadedView();
 
     /**
      * 请求网络加载数据
-     *
-     * @return
      */
     public abstract LoadResult load();
 

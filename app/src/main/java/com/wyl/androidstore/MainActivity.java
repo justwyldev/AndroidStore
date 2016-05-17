@@ -19,6 +19,11 @@ import com.wyl.androidstore.fragment.FragmentFactory;
 import com.wyl.androidstore.ui.holder.MenuHolder;
 import com.wyl.androidstore.utils.UIUtils;
 
+/**
+ * MainActivity
+ * Created by Leon Wu
+ * Email: yuanliang.wu@weimob.com
+ */
 public class MainActivity extends BaseActivity {
 
     private DrawerLayout mDrawerLayout;

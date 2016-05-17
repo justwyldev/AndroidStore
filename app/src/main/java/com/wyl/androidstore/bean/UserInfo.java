@@ -1,7 +1,7 @@
 package com.wyl.androidstore.bean;
 
 /**
- * 用户
+ * 用户信息
  * Created by Leon Wu on 2016/5/316:28.
  * Email: yuanliang.wu@weimob.com
  */

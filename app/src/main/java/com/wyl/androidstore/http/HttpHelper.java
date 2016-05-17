@@ -24,10 +24,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
+ * HttpHelper
  * Created by Leon Wu on 2016/5/318:22.
  * Email: yuanliang.wu@weimob.com
  */
 public class HttpHelper {
+
     public static final String URL = "http://127.0.0.1:8090/";
 
     /**

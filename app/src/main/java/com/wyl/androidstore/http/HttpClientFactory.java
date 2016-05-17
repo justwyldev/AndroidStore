@@ -34,17 +34,26 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
 /**
+ * HttpclientFactory
  * Created by Leon Wu on 2016/5/410:53.
  * Email: yuanliang.wu@weimob.com
  */
 public class HttpClientFactory {
-    /** http请求最大并发连接数 */
+    /**
+     * http请求最大并发连接数
+     */
     private static final int MAX_CONNECTIONS = 10;
-    /** 超时时间 */
+    /**
+     * 超时时间
+     */
     private static final int TIMEOUT = 10 * 1000;
-    /** 缓存大小 */
+    /**
+     * 缓存大小
+     */
     private static final int SOCKET_BUFFER_SIZE = 8 * 1024; // 8KB
-    /** 错误尝试次数，错误异常表请在RetryHandler添加 */
+    /**
+     * 错误尝试次数，错误异常表请在RetryHandler添加
+     */
     private static final int MAX_RETRIES = 5;
     private static final String HEADER_ACCEPT_ENCODING = "Accept-Encoding";
     private static final String ENCODING_GZIP = "gzip";
@@ -87,7 +96,9 @@ public class HttpClientFactory {
     }
 
 
-    /** 当服务器返回的数据是以Gzip压缩的过后的数据，填充Response返回的实体数据 (Description)，则返回GZIP解压流 */
+    /**
+     * 当服务器返回的数据是以Gzip压缩的过后的数据，填充Response返回的实体数据 (Description)，则返回GZIP解压流
+     */
     private static class InflatingEntity extends HttpEntityWrapper {
         public InflatingEntity(HttpEntity wrapped) {
             super(wrapped);
@@ -105,7 +116,9 @@ public class HttpClientFactory {
         }
     }
 
-    /** 自定义的安全套接字协议的实现，目前采用默认的，未使用到 */
+    /**
+     * 自定义的安全套接字协议的实现，目前采用默认的，未使用到
+     */
     private static class SSLSocketFactoryEx extends SSLSocketFactory {
         // 此类的实例表示安全套接字协议的实现，它充当用于安全套接字工厂或 SSLEngine 的工厂。用可选的一组密钥和信任管理器及安全随机字节源初始化此类。
         SSLContext sslContext = SSLContext.getInstance("TLS");

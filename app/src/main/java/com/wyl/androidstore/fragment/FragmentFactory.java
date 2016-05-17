@@ -4,8 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Fragment工厂
- * <p/>
+ * Fragment工厂（创建相应Fragment）
  * Created by Leon Wu on 2016/5/417:48.
  * Email: yuanliang.wu@weimob.com
  */
@@ -23,9 +22,6 @@ public class FragmentFactory {
 
     /**
      * 创建Fragment
-     *
-     * @param index
-     * @return
      */
     public static BaseFragment createFragment(int index) {
         BaseFragment fragment = mFragments.get(index);

@@ -9,7 +9,6 @@ import com.wyl.androidstore.utils.UIUtils;
 
 /**
  * BaseHolder
- * <p/>
  * Created by Leon Wu on 2016/5/316:29.
  * Email: yuanliang.wu@weimob.com
  */

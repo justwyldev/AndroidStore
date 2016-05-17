@@ -17,6 +17,7 @@ import com.wyl.androidstore.ui.holder.AppDetailScreenHolder;
 import com.wyl.androidstore.utils.UIUtils;
 
 /**
+ * 详情DetailActivity
  * Created by Leon Wu on 2016/5/515:32.
  * Email: yuanliang.wu@weimob.com
  */
@@ -53,15 +54,7 @@ public class DetailActivity extends BaseActivity {
 
     /**
      * actionBar的点击事件
-     *//*
-    @Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getItemId() == android.R.id.home) {
-			finish();
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}*/
+     */
     protected View createLoadedView() {
         View view = UIUtils.inflate(R.layout.activity_detail);
         // 添加信息区域

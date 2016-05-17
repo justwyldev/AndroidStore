@@ -7,7 +7,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 管理线程池 根据不同的业务 开启的线程数 不一样
- * <p/>
  * Created by Leon Wu on 2016/5/411:07.
  * Email: yuanliang.wu@weimob.com
  */
