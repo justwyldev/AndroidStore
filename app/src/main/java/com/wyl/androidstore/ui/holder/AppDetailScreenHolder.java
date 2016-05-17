@@ -9,6 +9,9 @@ import com.wyl.androidstore.bean.AppInfo;
 import com.wyl.androidstore.http.HttpHelper;
 import com.wyl.androidstore.utils.UIUtils;
 
+/***
+ * 应用详情页水平滚动页
+ */
 public class AppDetailScreenHolder extends BaseHolder<AppInfo> {
 	private ImageView[] mIv;
 	@Override

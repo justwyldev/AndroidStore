@@ -14,6 +14,11 @@ import com.wyl.androidstore.bean.DownloadInfo;
 import com.wyl.androidstore.manager.DownloadManager;
 import com.wyl.androidstore.utils.UIUtils;
 
+/**
+ * 加载详情页底部的数据
+ * Created by Leon Wu on 2016/5/5
+ * Email: yuanliang.wu@weimob.com
+ */
 public class AppDetailBottomHolder extends BaseHolder<AppInfo> implements
 		OnClickListener, DownloadManager.DownloadObserver {
 	private Button mBtnFavorites, mBtnShare, mBtnProgress;

@@ -18,6 +18,9 @@ import com.wyl.androidstore.R;
 import com.wyl.androidstore.bean.AppInfo;
 import com.wyl.androidstore.utils.UIUtils;
 
+/***
+ * 应用详情页应用介绍部分
+ */
 public class AppDetailDesHolder extends BaseHolder<AppInfo> implements
         OnClickListener {
     private RelativeLayout mLayout;
@@ -141,7 +144,7 @@ public class AppDetailDesHolder extends BaseHolder<AppInfo> implements
     }
 
     /**
-     * �ҵ����ո����� ScollView
+     * 找到最终父容器 ScollView
      */
     protected ScrollView getScrollView() {
         ScrollView scrollView = null;

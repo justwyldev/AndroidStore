@@ -16,7 +16,6 @@ import java.util.List;
 
 /**
  * 侧滑Menu
- * <p/>
  * Created by Leon Wu on 2016/5/316:27.
  * Email: yuanliang.wu@weimob.com
  */
