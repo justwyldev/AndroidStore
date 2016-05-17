@@ -30,12 +30,6 @@ public class DownloadInfo {
         return downloadInfo;
     }
 
-    //	public float getProgress() {
-//		if (getAppSize() == 0) {
-//			return 0;
-//		}
-//		return (getCurrentSize() + 0.0f) / getAppSize();
-//	}
     public long getId() {
         return id;
     }
