@@ -1,5 +1,6 @@
 package com.wyl.androidstore.fragment;
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.wyl.androidstore.ui.LoadingPage;
+import com.wyl.androidstore.ui.LoadingPage.LoadResult;
+import com.wyl.androidstore.utils.LogUtils;
 import com.wyl.androidstore.utils.UIUtils;
 import com.wyl.androidstore.utils.ViewUtils;
 
@@ -20,31 +23,49 @@ public abstract class BaseFragment extends Fragment {
     protected LoadingPage mContentView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        LogUtils.i("onCreateView");
         if (mContentView == null) {
+            LogUtils.i("tianjia2");
             mContentView = new LoadingPage(UIUtils.getContext()) {
-                @Override
-                public View createLoadedView() {
-                    return BaseFragment.this.createLoadedView();
-                }
-
                 @Override
                 public LoadResult load() {
                     return BaseFragment.this.load();
                 }
+
+                @Override
+                public View createLoadedView() {
+                    return BaseFragment.this.createLoadedView();
+                }
             };
+            // 把所有界面添加到 帧布局上
+            // show(); // 一遍加载一遍显示界面
         } else {
+            // 由于之前的framelayout并没有销毁 而且还缓存到了 ViewPager 中 需要先把之前的在ViewPager中移除
             ViewUtils.removeSelfFromParent(mContentView);
         }
+
         return mContentView;
     }
 
     /**
-     * 请求网络加载
+     * 检查数据完整性
      *
+     * @param data
      * @return
      */
-    public abstract LoadingPage.LoadResult load();
+    protected LoadResult check(Object data) {
+        if (data == null) {
+            return LoadResult.ERROR;
+        } else if (data instanceof List) {
+            List list = (List) data;
+            if (list.size() == 0) {
+                return LoadResult.EMPTY;
+            }
+        }
+        return LoadResult.SUCCEDD;
+    }
 
     /**
      * 显示具体界面
@@ -53,31 +74,16 @@ public abstract class BaseFragment extends Fragment {
      */
     public abstract View createLoadedView();
 
-
     /**
-     * 检查数据的完整性
+     * 请求网络加载数据
      *
-     * @param data
      * @return
      */
-    protected LoadingPage.LoadResult check(Object data) {
-        if (data == null) {
-            return LoadingPage.LoadResult.ERROR;
-        } else if (data instanceof List) {
-            List list = (List) data;
-            if (list.size() == 0) {
-                return LoadingPage.LoadResult.EMPTY;
-            }
-        }
-        return LoadingPage.LoadResult.SUCCEDD;
+    public abstract LoadResult load();
+
+    public void show() {
+        if (mContentView != null)
+            mContentView.show();
     }
 
-    /**
-     *加载显示LoadingPage
-     */
-    public void show() {
-        if (mContentView != null) {
-            mContentView.show();
-        }
-    }
 }
