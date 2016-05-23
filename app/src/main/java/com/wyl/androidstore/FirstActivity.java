@@ -43,7 +43,6 @@ public class FirstActivity extends BaseActivity {
                     e.printStackTrace();
                 }
                 handler.sendEmptyMessage(MSG_WHAT_NUM);
-
             }
         }.start();
     }
