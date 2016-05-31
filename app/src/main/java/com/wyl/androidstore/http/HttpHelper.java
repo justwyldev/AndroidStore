@@ -87,6 +87,7 @@ public class HttpHelper {
      * http的返回结果的封装，可以直接从中获取返回的字符串或者流
      */
     public static class HttpResult {
+
         private HttpResponse mResponse;
         private InputStream mIn;
         private String mStr;

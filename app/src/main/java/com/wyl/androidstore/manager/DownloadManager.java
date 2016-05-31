@@ -54,6 +54,14 @@ public class DownloadManager {
     private DownloadManager() {
     }
 
+    // 单例
+    public static synchronized DownloadManager getInstance() {
+        if (instance == null) {
+            instance = new DownloadManager();
+        }
+        return instance;
+    }
+
     /**
      * 用于记录下载信息,如果是正式项目,需要持久化保存
      */
@@ -109,13 +117,6 @@ public class DownloadManager {
         }
     }
 
-    // 单例
-    public static synchronized DownloadManager getInstance() {
-        if (instance == null) {
-            instance = new DownloadManager();
-        }
-        return instance;
-    }
 
     public synchronized void download(AppInfo appInfo) {
         DownloadInfo info = mDownloadMap.get(appInfo.getId());
