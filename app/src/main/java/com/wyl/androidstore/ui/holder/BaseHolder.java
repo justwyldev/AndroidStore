@@ -13,20 +13,20 @@ import com.wyl.androidstore.utils.UIUtils;
  * Email: yuanliang.wu@weimob.com
  */
 public abstract class BaseHolder<Data> {
+
     protected View mContentView;
     protected Data data;
     protected BitmapUtils bitmapUtils;
 
 
     public BaseHolder() {
-
         mContentView = initView();
         mContentView.setTag(this);
 
         if (bitmapUtils == null) {
             bitmapUtils = BitmapHelper.getBitmapUtils(UIUtils.getContext());
-            bitmapUtils.configDefaultLoadingImage(R.drawable.ic_default);
-            bitmapUtils.configDefaultLoadFailedImage(R.drawable.ic_default);
+            bitmapUtils.configDefaultLoadingImage(R.drawable.ic_default);//默认加载中
+            bitmapUtils.configDefaultLoadFailedImage(R.drawable.ic_default);//默认加载失败
         }
     }
 

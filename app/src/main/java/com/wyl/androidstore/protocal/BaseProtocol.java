@@ -18,6 +18,10 @@ import java.io.FileWriter;
  * Email: yuanliang.wu@weimob.com
  */
 public abstract class BaseProtocol<Data> {
+
+    /**
+     * 优先加载本地json,再加载网络然后保存到本地
+     */
     public Data load(int index) {
         SystemClock.sleep(1000);
         String json = loadLocal(index);
