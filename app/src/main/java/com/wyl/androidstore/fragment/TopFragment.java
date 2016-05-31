@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * 首页banner Fragment
+ * 排行 Fragment
  * Created by Leon Wu on 2016/5/511:16.
  * Email: yuanliang.wu@weimob.com
  */

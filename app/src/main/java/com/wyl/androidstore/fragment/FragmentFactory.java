@@ -16,7 +16,6 @@ public class FragmentFactory {
     public static final int TAB_SUBJECT = 3;
     public static final int TAB_CATEGORY = 4;
     public static final int TAB_TOP = 5;
-    public static final int TAB_RECOMMEND = 6;
 
     private static Map<Integer, BaseFragment> mFragments = new HashMap<Integer, BaseFragment>();
 
@@ -45,9 +44,6 @@ public class FragmentFactory {
                     break;
                 case TAB_TOP:
                     fragment = new TopFragment();
-                    break;
-                case TAB_RECOMMEND:
-                    fragment = new RecommendFragment();
                     break;
             }
             mFragments.put(index, fragment);//保存创建的fragmen

@@ -16,7 +16,7 @@ import com.wyl.androidstore.utils.UIUtils;
 import java.util.List;
 
 /**
- * 主题Fragment
+ * 专题Fragment
  * Created by Leon Wu on 2016/5/511:15.
  * Email: yuanliang.wu@weimob.com
  */

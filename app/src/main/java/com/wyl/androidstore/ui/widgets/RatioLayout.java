@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import com.wyl.androidstore.R;
 
 /**
- * 自定义分类布局
+ * 自定义专题布局
  * Created by Leon Wu on 2016/5/1012:01.
  * Email: yuanliang.wu@weimob.com
  */
