@@ -21,24 +21,28 @@ import java.util.List;
  * Email: yuanliang.wu@weimob.com
  */
 public class CategoryFragment extends BaseFragment {
+
     private List<CategoryInfo> mDatas = null;
     private CategortAdapter adapter;
+
     @Override
     public View createLoadedView() {
-        BaseListView listView=new BaseListView(getActivity());
-        adapter=new CategortAdapter(mDatas, listView);
+        BaseListView listView = new BaseListView(getActivity());
+        adapter = new CategortAdapter(mDatas, listView);
         listView.setAdapter(adapter);
         return listView;
     }
+
     @Override
     public LoadingPage.LoadResult load() {
-        CategoryProtocol protocol=new CategoryProtocol();
+        CategoryProtocol protocol = new CategoryProtocol();
         mDatas = protocol.load(0);
         return check(mDatas);
     }
 
     public class CategortAdapter extends DefaultAdapter<CategoryInfo> {
         private int mCurrentPosition;
+
         public CategortAdapter(List<CategoryInfo> datas, AbsListView absListView) {
             super(datas, absListView);
         }
@@ -52,19 +56,23 @@ public class CategoryFragment extends BaseFragment {
                 return new CategoryHolder();
             }
         }
+
         @Override
         public boolean hasMore() {
             return false;
         }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             mCurrentPosition = position;
             return super.getView(position, convertView, parent);
         }
+
         @Override
         public int getViewTypeCount() {
-            return super.getViewTypeCount()+1;
+            return super.getViewTypeCount() + 1;
         }
+
         //告诉ListView每个位置是哪种样式的item
         @Override
         public int getItemViewTypeInner(int position) {
