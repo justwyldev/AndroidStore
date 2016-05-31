@@ -12,7 +12,6 @@ import com.wyl.androidstore.utils.UIUtils;
 
 /**
  * 根据状态加载页面
- * <p/>
  * Created by Leon Wu on 2016/5/417:50.
  * Email: yuanliang.wu@weimob.com
  */
@@ -22,7 +21,6 @@ public abstract class LoadingPage extends FrameLayout {
     public static final int STATE_ERROR = 2; // 错误状态
     public static final int STATE_EMPTY = 3; // 加载完毕 错误状态
     public static final int STATE_SUCCEED = 4; // 加载成功
-
 
     // 显示的4个界面
     private View mLoadingView;// 加载时显示的View
