@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import com.wyl.androidstore.R;
 
 /**
+ * 自定义分类布局
  * Created by Leon Wu on 2016/5/1012:01.
  * Email: yuanliang.wu@weimob.com
  */
@@ -49,13 +50,11 @@ public class RatioLayout extends FrameLayout {
             heightMeasureSpec = MeasureSpec
                     .makeMeasureSpec(height + getPaddingBottom()
                             + getPaddingTop(), MeasureSpec.EXACTLY);
-
         } else if (widthMode != MeasureSpec.EXACTLY && heightMode == MeasureSpec.EXACTLY && ratio != 0.0f) {
             width = (int) (height * ratio + 0.5f);
             widthMeasureSpec = MeasureSpec.makeMeasureSpec(width + getPaddingLeft() + getPaddingRight(),
                     MeasureSpec.EXACTLY);
         }
-
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 

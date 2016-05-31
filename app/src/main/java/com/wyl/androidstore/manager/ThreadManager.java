@@ -22,8 +22,6 @@ public class ThreadManager {
 
     /**
      * 一般请求网络 用长的线程池  联网耗时比较长 尽量的让其它任务在别的线程中
-     *
-     * @return
      */
     public static ThreadPoolProxy creatLongPool() {
         synchronized (mLongLock) {
@@ -57,8 +55,6 @@ public class ThreadManager {
 
     /**
      * 封装了线程池
-     *
-     * @author itcast
      */
     public static class ThreadPoolProxy {
         private ThreadPoolExecutor mPool;// 系统提供的线程池
