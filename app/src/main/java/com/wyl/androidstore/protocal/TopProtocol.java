@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 排行Protocol
  * Created by Leon Wu on 2016/5/516:43.
  * Email: yuanliang.wu@weimob.com
  */

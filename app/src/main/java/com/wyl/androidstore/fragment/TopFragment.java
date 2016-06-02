@@ -28,14 +28,15 @@ import java.util.Random;
 public class TopFragment extends BaseFragment {
     private List<String> data;
     private FlowLayout layout;
+
     @Override
     public View createLoadedView() {
         // 防止在小屏的手机上显示不全,需要通过ScrollView 包裹界面
-        ScrollView mScrollView=new ScrollView(UIUtils.getContext());
+        ScrollView mScrollView = new ScrollView(UIUtils.getContext());
         mScrollView.setFillViewport(true);//
-        layout=new FlowLayout(getActivity());
+        layout = new FlowLayout(getActivity());
         layout.setBackgroundResource(R.drawable.grid_item_bg_normal);
-        int layoutPadding=UIUtils.dip2px(13);
+        int layoutPadding = UIUtils.dip2px(13);
         layout.setPadding(layoutPadding, layoutPadding, layoutPadding, layoutPadding);
         layout.setHorizontalSpacing(layoutPadding);
         layout.setVerticalSpacing(layoutPadding);
@@ -46,9 +47,9 @@ public class TopFragment extends BaseFragment {
         int radius = UIUtils.dip2px(5);
 
         // 代码动态创建图片
-        GradientDrawable pressDrawable=DrawableUtils.createDrawable(backColor, backColor, radius);
-        Random mRdm=new Random();
-        for(int i=0;i<data.size();i++){
+        GradientDrawable pressDrawable = DrawableUtils.createDrawable(backColor, backColor, radius);
+        Random mRdm = new Random();
+        for (int i = 0; i < data.size(); i++) {
             TextView tv = new TextView(UIUtils.getContext());
             // 随机颜色
             int red = 32 + mRdm.nextInt(208);
@@ -59,7 +60,7 @@ public class TopFragment extends BaseFragment {
             GradientDrawable normalDrawable = DrawableUtils.createDrawable(color, color, radius);
             StateListDrawable selector = DrawableUtils.createSelector(normalDrawable, pressDrawable);
             tv.setBackgroundDrawable(selector);
-            final String text=data.get(i);
+            final String text = data.get(i);
             tv.setText(text);
             tv.setTextColor(Color.WHITE);
             tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
@@ -80,9 +81,8 @@ public class TopFragment extends BaseFragment {
 
     @Override
     public LoadingPage.LoadResult load() {
-        TopProtocol protocol=new TopProtocol();
+        TopProtocol protocol = new TopProtocol();
         data = protocol.load(0);
-
-        return  check(data);
+        return check(data);
     }
 }
