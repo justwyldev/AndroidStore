@@ -13,7 +13,7 @@
 
 
     <color name="menu_bg_normal">#f0f1f3</color>
-    <color name="menu_bg_press">#3F51B5</color>
+    <color name="menu_bg_press">#cecece</color>
 
 
     <!-- 3.0 标题栏主题色 -->

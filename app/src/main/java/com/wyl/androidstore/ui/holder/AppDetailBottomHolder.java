@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wyl.androidstore.R;
 import com.wyl.androidstore.bean.AppInfo;
@@ -21,7 +20,7 @@ import com.wyl.androidstore.utils.UIUtils;
  */
 public class AppDetailBottomHolder extends BaseHolder<AppInfo> implements
 		OnClickListener, DownloadManager.DownloadObserver {
-	private Button mBtnFavorites, mBtnShare, mBtnProgress;
+	private Button mBtnProgress;
 	private FrameLayout mLayout;
 	private int mState;
 	private int mProgress;
@@ -32,14 +31,8 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfo> implements
 	@Override
 	protected View initView() {
 		View view = UIUtils.inflate(R.layout.app_detail_bottom);
-		mBtnFavorites = (Button) view.findViewById(R.id.bottom_favorites);
-		mBtnShare = (Button) view.findViewById(R.id.bottom_share);
 		mBtnProgress = (Button) view.findViewById(R.id.progress_btn);
-		mBtnFavorites.setOnClickListener(this);
-		mBtnShare.setOnClickListener(this);
 		mBtnProgress.setOnClickListener(this);
-		mBtnFavorites.setText(R.string.bottom_favorites);
-		mBtnShare.setText(R.string.bottom_share);
 
 		mLayout = (FrameLayout) view.findViewById(R.id.progress_layout);
 		mProgeressView = (ProgressBar) view.findViewById(R.id.pb_load_process);
@@ -132,14 +125,6 @@ public class AppDetailBottomHolder extends BaseHolder<AppInfo> implements
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.bottom_favorites:
-			Toast.makeText(UIUtils.getContext(), R.string.bottom_favorites, 0)
-					.show();
-			break;
-		case R.id.bottom_share:
-			Toast.makeText(UIUtils.getContext(), R.string.bottom_share, 0)
-					.show();
-			break;
 		case R.id.detail_progress:
 		case R.id.progress_btn:
 			if (mState == DownloadManager.STATE_NONE

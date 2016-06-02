@@ -1,5 +1,7 @@
 package com.wyl.androidstore;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
@@ -110,4 +112,9 @@ public class BaseActivity extends ActionBarActivity {
         }
     }
 
+
+    public static void startActivity(Context context, Class<?> clz) {
+        Intent it = new Intent(context, clz);
+        context.startActivity(it);
+    }
 }
