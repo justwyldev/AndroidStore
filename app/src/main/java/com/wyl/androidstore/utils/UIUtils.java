@@ -22,12 +22,16 @@ public class UIUtils {
         return (int) (dip * scale + 0.5f);
     }
 
-    /**获取上下文*/
+    /**
+     * 获取上下文
+     */
     public static Context getContext() {
         return BaseApplication.getApplication();
     }
 
-    /** px--dip */
+    /**
+     * px--dip
+     */
 
     public static int px2dip(int px) {
         final float scale = getContext().getResources().getDisplayMetrics().density;
@@ -38,17 +42,23 @@ public class UIUtils {
         return getContext().getResources();
     }
 
-    /** 获取字符数组 */
+    /**
+     * 获取字符数组
+     */
     public static String[] getStringArray(int id) {
         return getResources().getStringArray(id);
     }
 
-    /** 获取颜色id */
+    /**
+     * 获取颜色id
+     */
     public static int getColor(int colorId) {
         return getResources().getColor(colorId);
     }
 
-    /** 根据id获取尺寸*/
+    /**
+     * 根据id获取尺寸
+     */
     public static int getDimens(int id) {
         return getResources().getDimensionPixelSize(id);
     }
@@ -59,6 +69,7 @@ public class UIUtils {
 
     /**
      * 在主线程中执行代码
+     *
      * @param runnable
      */
     public static void runOnUiThread(Runnable runnable) {
@@ -76,12 +87,16 @@ public class UIUtils {
         handler.post(runnable);
     }
 
-    /** 移除一个执行的对象 */
+    /**
+     * 移除一个执行的对象
+     */
     public static void removeCallBacks(Runnable r) {
         getHandler().removeCallbacks(r);
     }
 
-    /**延迟执行*/
+    /**
+     * 延迟执行
+     */
     public static void postDelay(Runnable runnable, long delay) {
         Handler handler = getHandler();
         handler.postDelayed(runnable, delay);
@@ -101,23 +116,31 @@ public class UIUtils {
 
     /**
      * 开启Activity
-     * @param intent
      */
     public static void startActivity(Intent intent) {
         if (BaseActivity.getForegroundActivity() != null) {
             BaseActivity.getForegroundActivity().startActivity(intent);
-        }else{
+        } else {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getContext().startActivity(intent);
         }
     }
 
+    /**
+     * 退出程序
+     */
+    public static void exitApp() {
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
+
     public static String getString(int id) {
         return getResources().getString(id);
     }
+
     public static void showToast(String str) {
         Toast.makeText(UIUtils.getContext(), str, 0).show();
     }
+
     public static void showToast(int id) {
         Toast.makeText(UIUtils.getContext(), id, 0).show();
     }
